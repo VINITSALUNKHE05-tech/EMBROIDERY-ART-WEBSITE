@@ -12,7 +12,7 @@
     "name": "Resham Work",
     "brand": "StitchCraft",
     "price": 500,
-    "image": "IMAGE/product4.jpg",
+    "image": "IMAGE/product2.jpg",
     "description": "Beautiful Resham Work with traditional designs. Soft silk threads and vibrant colors."
   },
   {
@@ -28,7 +28,7 @@
     "name": "Jari Work Embroidery",
     "brand": "StitchCraft",
     "price": 600,
-    "image": "IMAGE/product2.jpg",
+    "image": "IMAGE/product4.jpg",
     "description": "High-quality Jari Work Embroidery. Durable and stylish for all occasions."
   },
   {
@@ -60,7 +60,7 @@
     "name": "Back Embroidery",
     "brand": "StitchCraft",
     "price": 500,
-    "image": "IMAGE/product10.jpg",
+    "image": "IMAGE/product8.jpg",
     "description": "Stylish Back Embroidery. Makes a grand entrance with detailed work."
   },
   {
@@ -68,7 +68,7 @@
     "name": "Zardosi Work",
     "brand": "StitchCraft",
     "price": 1200,
-    "image": "IMAGE/product11.jpg",
+    "image": "IMAGE/product9.jpg",
     "description": "Premium Zardosi work with metallic threads and beads. Very heavy and luxurious."
   },
   {
@@ -76,7 +76,7 @@
     "name": "Mirror Work",
     "brand": "StitchCraft",
     "price": 850,
-    "image": "IMAGE/product12.jpg",
+    "image": "IMAGE/product10.jpg",
     "description": "Traditional Mirror work from Kutch. Sparkling and colorful."
   },
   {
@@ -84,7 +84,7 @@
     "name": "Kashmiri Embroidery",
     "brand": "StitchCraft",
     "price": 1500,
-    "image": "IMAGE/product13.jpg",
+    "image": "IMAGE/product11.jpg",
     "description": "Classic Kashmiri Sozni work. Very fine and detailed floral patterns."
   },
   {
@@ -92,7 +92,16 @@
     "name": "Chikan Work",
     "brand": "StitchCraft",
     "price": 950,
-    "image": "IMAGE/product14.jpg",
+    "image": "IMAGE/product12.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 13,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product13.jpg",
     "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
   }
+
 ]

@@ -172,7 +172,7 @@ body.inner-page #header {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 500;
-    color: #181414;
+    color: #141414;
     transition: 0.3s ease;
 }
 
@@ -228,8 +228,8 @@ body.inner-page #header {
 
 #Hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 8vw, 90px);
-    font-weight: 700;
+    font-size: clamp(40px, 8vw, 65px);
+    font-weight: 600;
     line-height: 1.1;
     margin-bottom: 20px;
     color: #fff;
@@ -801,6 +801,7 @@ footer {
     background-color: var(--soft-white);
     padding: 100px 80px;
     border-top: 1px solid var(--glass-border);
+    background-color: rgb(228, 228, 228);
 }
 
 footer .col {
@@ -903,8 +904,8 @@ footer .copyright {
 
 
 /* page header */
-#page-header {
-    background-image: url("IMAGE/Banner4.jpg");
+#page-header{
+    background-image: url("IMAGE/Banner4.jpeg");
     width: 100%;
     height: 35vh;
     background-size: cover;
@@ -1037,189 +1038,448 @@ footer .copyright {
 }
 
 
+/* Blog Page */
+#Blog-header {
+    background-image: url("IMAGE/Banner5.jpg");
+     width: 100%;
+    height: 35vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14PX;
+}
+
+#Blog-header h1,
+#Blog-header p {
+    color: #fff;
+}
+
+#Blog {
+    padding: 150px 150px 0 150px;
+}
+
+#Blog .Blog-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+#Blog .Blog-img {
+    width: 50%;
+    margin-right: 40px;
+}
+
+#Blog img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+#Blog .Blog-details {
+    width: 50%;
+}
+
+#Blog .Blog-details a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #000;
+    font-weight: 700;
+    position: relative;
+    transition: 0.3s;
+}
+
+#Blog .Blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 10px;
+    right: -60px;
+}
+
+#Blog .Blog-details a:hover {
+    color: #008bc2;
+}
+
+#Blog .Blog-details a:hover::after {
+    background-color: #008bc2;
+}
+
+#Blog .Blog-box h1 {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    font-size: 100px;
+    font-weight: 700;
+    color: #c9cbce;
+    z-index: -9;
+}
+ 
+/* About Page */
+#page-header.About-header {
+    background-image: url("IMAGE/Banner6.png")
+}
+
+#About-head {
+    display: flex;
+    align-items: center;
+}
+
+#About-head img {
+    width: 50%;
+    height: auto;
+}
+
+#About-head div {
+    padding: 40px; 
+}
+
+
+/* Contact Page */
+ 
+#Contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px;
+}
+
+#Contact-details .details {
+    width: 40%;
+}
+
+#Contact-details .details span,
+#Contact-details form span {
+    font-size: 15px;
+}
+
+#Contact-details .details h2,
+#Contact-details form h2 {
+    font-size: 30px;
+    line-height: 35px;
+    padding: 20px 0;
+    color: #141414;
+}
+
+#Contact-details .details h3 {
+    font-size: 20px;
+    padding-bottom: 15px;
+    color: #BD081C;
+}
+
+#Contact-details .details li {
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+}
+#Contact-details .details li i {
+   font-size: 17px;
+   padding-right: 22px;
+}
+
+#Contact-details .details li p {
+    margin: 0;
+    font-size: 17px; 
+    color: #03316d;
+}
+
+#Contact-details .Map {
+    width: 55%;
+    height: 400px;
+}
+
+#Contact-details .Map iframe {
+    width: 100%;
+    height: 100%;   
+}
+
+#form-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 80px;
+    border: 2px solid #e1e1e1;
+}
+
+#form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-details form input,
+#form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+#form-details form button {
+    background-color: #088178;
+    color: #fff;
+}
+
+#form-details .people div {
+    padding-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+}
+
+#form-details .people div img {
+    width: 15%;
+    height: 15%;
+    object-fit: cover;
+    margin: 15px;
+}
+
+#form-details .people div p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 25px;
+}
+
+#form-details .people div p span {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Start Media Query */
+/* Start Media Query for Tablet Devices (iPad, iPad Air, iPad Pro) */
 @media (max-width: 799px) {
-    .section-p1 {
-        padding: 40px 40px;
+
+    .section-p1{
+        padding:40px 40px;
     }
 
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        height: 100vh;
-        width: 300px;
-        background-color: #E3E6F3;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-        padding: 80px 0 0 10px;
-        transition: 0.3s;
+    #navbar{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-start;
+        position:fixed;
+        top:0;
+        right:-300px;
+        height:100vh;
+        width:300px;
+        background-color:#E3E6F3;
+        box-shadow:0 40px 60px rgba(0,0,0,0.1);
+        padding:80px 0 0 10px;
+        transition:0.3s;
     }
 
-    #navbar.active {
-        right: 0px;
+    #navbar.active{
+        right:0px;
     }
 
-    #navbar li {
-        margin-bottom: 25px;
+    #navbar li{
+        margin-bottom:25px;
     }
 
-    #mobile {
-        display: flex;
-        align-items: center;
+    #mobile{
+        display:flex;
+        align-items:center;
     }
 
-    #mobile i {
-        color: #1a1a1a;
-        font-size: 24px;
-        padding: 20px;
+    #mobile i{
+        color:#1a1a1a;
+        font-size:24px;
+        padding:20px;
     }
 
-    #close {
-        display: initial;
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        color: #222;
-        font-size: 24px;
+    #close{
+        display:initial;
+        position:absolute;
+        top:30px;
+        left:30px;
+        color:#222;
+        font-size:24px;
     }
 
-    #lg-bag {
-        display: none;
+    #lg-bag{
+        display:none;
     }
 
-    #Hero {
-        height: 70vh;
-        background-position: top 30% right 30%;
-        padding: 0 80px;
+    #Hero{
+        height:70vh;
+        background-position:top 30% right 30%;
+        padding:0 80px;
     }
 
-    #feature {
-        justify-content: space-betwee;
+    /* Fixed typo here */
+    #feature{
+        justify-content:space-between;
+        flex-wrap:wrap;
     }
 
-    #feature .fe-box {
-        margin: 15px 15px;
+    #feature .fe-box{
+        margin:15px 15px;
     }
 
-    #product1 .pro-container {
-        justify-content: center;
+    #product1 .pro-container{
+        justify-content:center;
+        flex-wrap:wrap;
     }
 
-    #product1 .pro {
-        margin: 15px;
+    #product1 .pro{
+        margin:15px;
     }
 
-    #banner {
-        height: 25vh;
+    #banner{
+        height:25vh;
     }
 
-    #sm-banner .banner-box {
-        min-width: 100%;
-        height: 30vh;
-
+    #sm-banner .banner-box{
+        min-width:100%;
+        height:30vh;
     }
 
-    @media (max-width: 477px) {
-        #header {
-            padding: 10px 30px;
-        }
+    /* Contact Page */
 
-        h1 {
-            font-size: 38px;
-        }
-
-        h2 {
-            font-size: 32px;
-        }
-
-        #Hero {
-            padding: 0 20px;
-            background-position: 55%;
-        }
-
-        #feature {
-            justify-content: space-between;
-        }
-
-        #feature .fe-box {
-            width: 155px;
-            margin: 0 0 15px 0;
-        }
-
-        #product1 .pro {
-            width: 100%;
-        }
-
-        #banner {
-            height: 40vh;
-        }
-
-        #sm-banner .banner-box {
-            height: 30vh;
-        }
-
-        footer .copyright {
-            text-align: start;
-        }
+    #form-details{
+        padding:40px;
+        flex-direction:column;
     }
 
-    /* single product */
-    #prodetails {
-        display: flex;
-        flex-direction: column;
+    #form-details form{
+        width:100%;
     }
 
-    #prodetails .single-pro-image {
-        width: 100%;
-        margin-right: 0px;
+}
+
+
+/* Start Media Query for Small Devices (Mobile Phones) */
+
+@media (max-width:477px){
+
+    #header{
+        padding:10px 30px;
     }
 
-    #prodetails .single-pro-details {
-        width: 100%;
+    h1{
+        font-size:38px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    #Hero{
+        padding:0 20px;
+        background-position:55%;
+    }
+
+    #feature{
+        justify-content:space-between;
+    }
+
+    #feature .fe-box{
+        width:155px;
+        margin:0 0 15px 0;
+    }
+
+    #product1 .pro{
+        width:100%;
+    }
+
+    #banner{
+        height:40vh;
+    }
+
+    #sm-banner .banner-box{
+        height:30vh;
+    }
+
+    footer .copyright{
+        text-align:start;
+    }
+
+    /* Single Product */
+
+    #prodetails{
+        display:flex;
+        flex-direction:column;
+    }
+
+    #prodetails .single-pro-image{
+        width:100%;
+        margin-right:0;
+    }
+
+    #prodetails .single-pro-details{
+        width:100%;
+    }
+
+    /* Blog Page */
+
+    #Blog{
+        padding:100px 20px 0 20px;
+    }
+
+    #Blog .Blog-box{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    #Blog .Blog-img{
+        width:100%;
+        margin-right:0;
+        margin-bottom:30px;
+    }
+
+    #Blog .Blog-details{
+        width:100%;
+    }
+
+    /* About Page */
+
+    #About-head{
+        flex-direction:column;
+    }
+
+    #About-head img{
+        width:100%;
+        margin-bottom:15px;
+    }
+
+    #About-head div{
+        padding-left:0;
+    }
+
+    /* Contact Page */
+
+    #Contact-details{
+        flex-direction:column;
+        margin:10px;
+        padding:30px 10px;
+        flex-wrap:wrap;
+    }
+
+    #Contact-details .details{
+        width:100%;
+        margin-bottom:30px;
+    }
+
+    #Contact-details .Map{
+        width:100%;
+    }
+
+    #Contact-details form{
+        width:100%;
+        margin-bottom:30px;
     }
 
 }
