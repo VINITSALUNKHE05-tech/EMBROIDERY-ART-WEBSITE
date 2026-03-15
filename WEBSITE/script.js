@@ -170,7 +170,7 @@ async function loadProducts(containerId) {
         const res = await fetch('/api/products');
         const products = await res.json();
 
-        let displayProducts = products.slice(0, 8);
+        let displayProducts = products.slice(0, 21);
 
         container.innerHTML = displayProducts.map(p => `
             <div class="pro reveal" onclick="window.location.href='Sproduct.html?id=${p.id}'">

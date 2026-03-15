@@ -102,6 +102,61 @@
     "price": 950,
     "image": "IMAGE/product13.jpg",
     "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 14,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product14.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 15,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product15.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 16,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product16.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 17,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product17.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 18,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product18.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 19,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/Product19.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
+  },
+  {
+    "id": 20,
+    "name": "Chikan Work",
+    "brand": "StitchCraft",
+    "price": 950,
+    "image": "IMAGE/product20.jpg",
+    "description": "Elegant Lucknawi Chikankari. Subtle thread work on light fabrics."
   }
-
 ]
