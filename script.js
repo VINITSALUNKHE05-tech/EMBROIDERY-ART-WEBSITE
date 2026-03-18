@@ -12,9 +12,7 @@ if (close) {
     close.addEventListener('click', () => {
         nav.classList.remove('active');
     });
-}
-
-// Navbar Scroll & Back to Top Effect
+}
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
     const backToTop = document.getElementById('back-to-top');
@@ -34,9 +32,7 @@ window.addEventListener('scroll', () => {
             backToTop.classList.remove('show');
         }
     }
-});
-
-// Back to Top Click
+});
 const backToTopBtn = document.getElementById('back-to-top');
 if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
@@ -45,9 +41,7 @@ if (backToTopBtn) {
             behavior: 'smooth'
         });
     });
-}
-
-// --- Toast Notification System ---
+}
 function showNotification(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = `toast-notice ${type}`;
@@ -55,9 +49,7 @@ function showNotification(message, type = 'success') {
         <i class="${type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'}"></i>
         <span>${message}</span>
     `;
-    document.body.appendChild(toast);
-
-    // Style for toast (would ideally be in CSS)
+    document.body.appendChild(toast);
     Object.assign(toast.style, {
         position: 'fixed',
         bottom: '30px',
@@ -79,9 +71,7 @@ function showNotification(message, type = 'success') {
         toast.style.transition = '0.5s';
         setTimeout(() => toast.remove(), 500);
     }, 3000);
-}
-
-// Add animation keyframe to document head
+}
 const style = document.createElement('style');
 style.innerHTML = `
     @keyframes slideUp {
@@ -96,9 +86,7 @@ style.innerHTML = `
         animation: fadeInUp 0.8s ease forwards;
     }
 `;
-document.head.appendChild(style);
-
-// --- Scroll Reveal Logic ---
+document.head.appendChild(style);
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal:not(.active)');
     const observer = new IntersectionObserver((entries) => {
@@ -111,9 +99,7 @@ function initScrollReveal() {
     }, { threshold: 0.1 });
 
     reveals.forEach(el => observer.observe(el));
-}
-
-// --- Dynamic Full Stack Logic ---
+}
 
 async function checkAuth() {
     try {
@@ -131,13 +117,9 @@ async function checkAuth() {
 
 function updateNavbar(user) {
     const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    // Clear existing auth links
+    if (!navbar) return;
     const existingAuth = navbar.querySelectorAll('.auth-link');
-    existingAuth.forEach(el => el.remove());
-
-    // Update Bag Link to Cart.html (consistent redirect)
+    existingAuth.forEach(el => el.remove());
     const bagIcons = document.querySelectorAll('a[href="Profile.html"] i.far.fa-shopping-bag');
     bagIcons.forEach(icon => {
         icon.parentElement.href = 'Cart.html';
@@ -183,9 +165,7 @@ async function loadProducts(containerId) {
                     <h4>Rs.${p.price}</h4>
                 </div>
             </div>
-        `).join('');
-
-        // Re-initialize scroll reveal for new elements
+        `).join('');
         initScrollReveal();
     } catch (err) {
         console.error('Error loading products:', err);
@@ -220,8 +200,7 @@ async function loadProductDetails(productId) {
         if (cartBtn) {
             cartBtn.onclick = () => {
                 const qtySelect = document.getElementById('pro-quantity');
-                const qty = qtySelect ? qtySelect.value : 1;
-                // For Sproduct page, user wants a redirect to Cart after adding
+                const qty = qtySelect ? qtySelect.value : 1;
                 addToCart(product.id, qty, true);
             };
         }
@@ -258,9 +237,7 @@ async function addToCart(productId, quantity = 1, redirect = false) {
         console.error('Error adding to cart:', err);
         showNotification('Network error. Could not add to cart.', 'error');
     }
-}
-
-// Initial calls
+}
 document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
     initScrollReveal();
@@ -276,20 +253,15 @@ async function processCheckout() {
         const res = await fetch('/api/checkout', { method: 'POST' });
         const data = await res.json();
 
-        if (res.ok) {
-            // Success
-            showNotification('Order placed successfully! ✨');
-
-            // Hide cart elements
+        if (res.ok) {
+            showNotification('Order placed successfully! ✨');
             const cartTable = document.querySelector('.cart-table');
             const cartSummary = document.querySelector('.cart-summary');
             const pageHeader = document.querySelector('#page-header p');
 
             if (cartTable) cartTable.style.display = 'none';
             if (cartSummary) cartSummary.style.display = 'none';
-            if (pageHeader) pageHeader.innerText = 'Your order is on its way!';
-
-            // Show confirmation
+            if (pageHeader) pageHeader.innerText = 'Your order is on its way!';
             const confirmation = document.getElementById('checkout-confirmation');
             if (confirmation) {
                 confirmation.style.display = 'block';

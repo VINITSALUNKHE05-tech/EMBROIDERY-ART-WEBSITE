@@ -9,18 +9,14 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SECRET_KEY = 'your_secret_key'; // In a real app, use environment variables
+const SECRET_KEY = 'your_secret_key'; 
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'WEBSITE')));
-
-// Helper functions for file storage
+app.use(express.static(__dirname));
 const getData = (file) => JSON.parse(fs.readFileSync(path.join(__dirname, 'data', file)));
-const setData = (file, data) => fs.writeFileSync(path.join(__dirname, 'data', file), JSON.stringify(data, null, 2));
-
-// Auth Middleware
+const setData = (file, data) => fs.writeFileSync(path.join(__dirname, 'data', file), JSON.stringify(data, null, 2));
 const authenticate = (req, res, next) => {
     const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: 'Unauthorized' });
@@ -31,9 +27,7 @@ const authenticate = (req, res, next) => {
     } catch (err) {
         res.status(401).json({ message: 'Invalid token' });
     }
-};
-
-// --- Product APIs ---
+};
 app.get('/api/products', (req, res) => {
     const products = getData('products.json');
     res.json(products);
@@ -44,9 +38,7 @@ app.get('/api/products/:id', (req, res) => {
     const product = products.find(p => p.id === parseInt(req.params.id));
     if (!product) return res.status(404).json({ message: 'Product not found' });
     res.json(product);
-});
-
-// --- Auth APIs ---
+});
 app.post('/api/signup', (req, res) => {
     const { name, email, password } = req.body;
     const users = getData('users.json');
@@ -79,9 +71,7 @@ app.get('/api/profile', authenticate, (req, res) => {
     const users = getData('users.json');
     const user = users.find(u => u.id === req.user.id);
     res.json({ name: user.name, email: user.email, cart: user.cart });
-});
-
-// --- Cart APIs ---
+});
 app.post('/api/cart/add', authenticate, (req, res) => {
     const { productId, quantity } = req.body;
     const users = getData('users.json');
@@ -123,9 +113,7 @@ app.delete('/api/cart/:productId', authenticate, (req, res) => {
 app.post('/api/checkout', authenticate, (req, res) => {
     const users = getData('users.json');
     const userIndex = users.findIndex(u => u.id === req.user.id);
-    if (userIndex === -1) return res.status(404).json({ message: 'User not found' });
-
-    // Clear the cart
+    if (userIndex === -1) return res.status(404).json({ message: 'User not found' });
     users[userIndex].cart = [];
     setData('users.json', users);
 
