@@ -8,7 +8,8 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
 const app = express();
-const SECRET_KEY = process.env.SECRET_KEY || 'your_secret_key';
+const PORT = process.env.PORT || 3000;
+const SECRET_KEY = 'your_secret_key'; 
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -61,7 +62,7 @@ app.post('/api/login', (req, res) => {
         return res.status(401).json({ message: 'Invalid credentials' });
     }
     const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '1h' });
-    res.cookie('token', token, { httpOnly: true, sameSite: 'None', secure: true });
+    res.cookie('token', token, { httpOnly: true });
     res.json({ message: 'Logged in successfully', user: { name: user.name, email: user.email } });
 });
 
@@ -125,9 +126,8 @@ app.post('/api/checkout', authenticate, (req, res) => {
     res.json({ message: 'Order placed successfully! Delivery in 2-3 days.' });
 });
 
-if (require.main === module) {
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-}
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
 
-module.exports = app;   
+module.exports = app;
