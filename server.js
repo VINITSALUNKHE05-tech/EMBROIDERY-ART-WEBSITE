@@ -8,15 +8,16 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const SECRET_KEY = 'your_secret_key'; 
+const SECRET_KEY = process.env.SECRET_KEY || 'your_secret_key';
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(__dirname));
+app.use(express.static(__dirname));
+
 const getData = (file) => JSON.parse(fs.readFileSync(path.join(__dirname, 'data', file)));
-const setData = (file, data) => fs.writeFileSync(path.join(__dirname, 'data', file), JSON.stringify(data, null, 2));
+const setData = (file, data) => fs.writeFileSync(path.join(__dirname, 'data', file), JSON.stringify(data, null, 2));
+
 const authenticate = (req, res, next) => {
     const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: 'Unauthorized' });
@@ -27,7 +28,8 @@ const authenticate = (req, res, next) => {
     } catch (err) {
         res.status(401).json({ message: 'Invalid token' });
     }
-};
+};
+
 app.get('/api/products', (req, res) => {
     const products = getData('products.json');
     res.json(products);
@@ -38,7 +40,8 @@ app.get('/api/products/:id', (req, res) => {
     const product = products.find(p => p.id === parseInt(req.params.id));
     if (!product) return res.status(404).json({ message: 'Product not found' });
     res.json(product);
-});
+});
+
 app.post('/api/signup', (req, res) => {
     const { name, email, password } = req.body;
     const users = getData('users.json');
@@ -58,7 +61,7 @@ app.post('/api/login', (req, res) => {
         return res.status(401).json({ message: 'Invalid credentials' });
     }
     const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '1h' });
-    res.cookie('token', token, { httpOnly: true });
+    res.cookie('token', token, { httpOnly: true, sameSite: 'None', secure: true });
     res.json({ message: 'Logged in successfully', user: { name: user.name, email: user.email } });
 });
 
@@ -71,7 +74,8 @@ app.get('/api/profile', authenticate, (req, res) => {
     const users = getData('users.json');
     const user = users.find(u => u.id === req.user.id);
     res.json({ name: user.name, email: user.email, cart: user.cart });
-});
+});
+
 app.post('/api/cart/add', authenticate, (req, res) => {
     const { productId, quantity } = req.body;
     const users = getData('users.json');
@@ -113,13 +117,17 @@ app.delete('/api/cart/:productId', authenticate, (req, res) => {
 app.post('/api/checkout', authenticate, (req, res) => {
     const users = getData('users.json');
     const userIndex = users.findIndex(u => u.id === req.user.id);
-    if (userIndex === -1) return res.status(404).json({ message: 'User not found' });
+    if (userIndex === -1) return res.status(404).json({ message: 'User not found' });
+
     users[userIndex].cart = [];
     setData('users.json', users);
 
     res.json({ message: 'Order placed successfully! Delivery in 2-3 days.' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+}
+
+module.exports = app;   
